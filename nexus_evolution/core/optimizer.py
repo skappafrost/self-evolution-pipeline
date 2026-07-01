@@ -6,19 +6,14 @@ and automatic prompt rewriting based on performance feedback.
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Protocol
 
 import dspy
 
 
-class MetricFunction(Protocol):
-    """Protocol for metric functions used in optimization."""
-
-    def __call__(self, prediction: str, reference: str) -> float:
-        """Return a score between 0.0 and 1.0."""
-        ...
+MetricFunction = Callable[[str, str], float]
 
 
 @dataclass

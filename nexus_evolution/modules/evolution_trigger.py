@@ -7,10 +7,9 @@ automatic evolution cycles when improvement is needed.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional
 
 from nexus_evolution.core.evaluator import PerformanceEvaluator
-from nexus_evolution.core.gap_detector import KnowledgeGap, KnowledgeGapDetector
+from nexus_evolution.core.gap_detector import KnowledgeGapDetector
 
 
 @dataclass

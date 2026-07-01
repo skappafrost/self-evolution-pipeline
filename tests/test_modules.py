@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from nexus_evolution.modules.skill_library import SkillLibrary, SkillVersion
+from nexus_evolution.modules.skill_library import SkillLibrary
 from nexus_evolution.modules.evolution_trigger import EvolutionTrigger, TriggerCondition
 from nexus_evolution.modules.feedback_loop import FeedbackLoop
 

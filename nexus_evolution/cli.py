@@ -40,7 +40,9 @@ def optimize(model: str, iterations: int, output: str | None) -> None:
         ("What is 2+2?", "4"),
         ("Who wrote 1984?", "George Orwell"),
     ]
-    metric = lambda pred, ref: 1.0 if pred.strip().lower() == ref.lower() else 0.0
+    def metric(pred: str, ref: str) -> float:
+        return 1.0 if pred.strip().lower() == ref.lower() else 0.0
+
     result = optimizer.optimize(
         initial_prompt="Answer the following question accurately:",
         train_data=train_data,
@@ -78,10 +80,10 @@ def check(min_performance: float, max_gaps: int) -> None:
     result = trigger.evaluate(evaluator, gap_detector, [], [])
 
     if result["should_evolve"]:
-        click.echo(f"\n⚠️  Evolution triggered!")
+        click.echo("\n⚠️  Evolution triggered!")
         click.echo(f"  Conditions: {', '.join(result['triggered_conditions'])}")
     else:
-        click.echo(f"\n✓ No evolution needed.")
+        click.echo("\n✓ No evolution needed.")
 
 
 @main.command("skills")

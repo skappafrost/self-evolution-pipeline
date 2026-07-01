@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional, Protocol
+from typing import Protocol
 
 import dspy
 
@@ -158,7 +158,7 @@ class PromptOptimizer:
                 return self.generate(input=input_text)
 
         # Prepare training data as DSPy examples
-        trainset = [
+        _trainset = [
             dspy.Example(input=text, output=expected).with_inputs("input")
             for text, expected in train_data
         ]

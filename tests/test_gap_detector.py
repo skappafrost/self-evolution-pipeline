@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
 
 from nexus_evolution.core.gap_detector import KnowledgeGap, KnowledgeGapDetector
 

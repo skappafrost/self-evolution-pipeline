@@ -84,15 +84,8 @@ class PromptOptimizer:
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
-        # Configure DSPy
-        if lm_provider == "openai":
-            self.lm = dspy.OpenAI(model=model)
-        elif lm_provider == "anthropic":
-            self.lm = dspy.Anthropic(model=model)
-        else:
-            self.lm = dspy.OpenAI(model=model)
-
-        dspy.configure(lm=self.lm)
+        # Configure DSPy (lazy — LM created at optimize-time)
+        self._lm_configured = False
 
     def _evaluate(
         self,
